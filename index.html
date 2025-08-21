@@ -2986,6 +2986,16 @@
                             </div>
                         </div>
 
+                        <!-- エピソード1 自由記述欄 -->
+                        <div style="margin: 20px 0; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #fd79a8;">
+                            <h4 style="margin: 0 0 8px 0; color: #475569; font-size: 13px; font-weight: 600;">✍️ エピソード1 自由記述</h4>
+                            <textarea 
+                                id="episode1Custom"
+                                placeholder="日常の意思決定に関する具体的なエピソードがあれば自由に記述してください..."
+                                style="width: 100%; height: 60px; padding: 8px; border: 1px solid #d1d5db; border-radius: 4px; font-size: 13px; resize: vertical; font-family: inherit;"
+                            ></textarea>
+                        </div>
+
                         <!-- エピソード2：学習・成長に関する場面 -->
                         <h3 style="margin: 24px 0 12px 0; color: #475569; font-size: 14px;">📚 エピソード2：学習・成長</h3>
                         <div class="option-item" onclick="toggleOption(this)" data-value="難しい授業への挑戦">
@@ -3080,6 +3090,16 @@
                             </div>
                         </div>
 
+                        <!-- エピソード2 自由記述欄 -->
+                        <div style="margin: 20px 0; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #fd79a8;">
+                            <h4 style="margin: 0 0 8px 0; color: #475569; font-size: 13px; font-weight: 600;">✍️ エピソード2 自由記述</h4>
+                            <textarea 
+                                id="episode2Custom"
+                                placeholder="学習・成長に関する具体的なエピソードがあれば自由に記述してください..."
+                                style="width: 100%; height: 60px; padding: 8px; border: 1px solid #d1d5db; border-radius: 4px; font-size: 13px; resize: vertical; font-family: inherit;"
+                            ></textarea>
+                        </div>
+
                         <!-- エピソード3：他者との関係性が現れる場面 -->
                         <h3 style="margin: 24px 0 12px 0; color: #475569; font-size: 14px;">👥 エピソード3：他者との関係</h3>
                         <div class="option-item" onclick="toggleOption(this)" data-value="友人との意見対立">
@@ -3165,6 +3185,16 @@
                                 <div class="option-main">新しいコミュニティ</div>
                                 <div class="option-desc">既存の人間関係を超えて新しい仲間を見つけた</div>
                             </div>
+                        </div>
+
+                        <!-- エピソード3 自由記述欄 -->
+                        <div style="margin: 20px 0; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #fd79a8;">
+                            <h4 style="margin: 0 0 8px 0; color: #475569; font-size: 13px; font-weight: 600;">✍️ エピソード3 自由記述</h4>
+                            <textarea 
+                                id="episode3Custom"
+                                placeholder="他者との関係に関する具体的なエピソードがあれば自由に記述してください..."
+                                style="width: 100%; height: 60px; padding: 8px; border: 1px solid #d1d5db; border-radius: 4px; font-size: 13px; resize: vertical; font-family: inherit;"
+                            ></textarea>
                         </div>
                     </div>
                 </div>
@@ -3374,8 +3404,13 @@
         function generatePrompt() {
             const totalSelected = Object.values(selections).reduce((sum, arr) => sum + arr.length, 0);
             
-            if (totalSelected === 0) {
-                alert('少なくとも1つの属性を選択してください。');
+            // 自由記述欄の内容を取得
+            const episode1Custom = document.getElementById('episode1Custom').value.trim();
+            const episode2Custom = document.getElementById('episode2Custom').value.trim();
+            const episode3Custom = document.getElementById('episode3Custom').value.trim();
+            
+            if (totalSelected === 0 && !episode1Custom && !episode2Custom && !episode3Custom) {
+                alert('少なくとも1つの属性を選択するか、自由記述欄に記入してください。');
                 return;
             }
 
@@ -3403,11 +3438,14 @@ ${selections.growth.length > 0 ? selections.growth.map(item => `• ${item}`).jo
 ### 📖 具体的エピソード (${selections.episodes.length}項目選択)
 ${selections.episodes.length > 0 ? selections.episodes.map(item => `• ${item}`).join('\n') : '• （未選択）'}
 
+### ✍️ 自由記述エピソード
+${episode1Custom ? `**エピソード1（日常の意思決定）:**\n${episode1Custom}\n` : ''}${episode2Custom ? `**エピソード2（学習・成長）:**\n${episode2Custom}\n` : ''}${episode3Custom ? `**エピソード3（他者との関係）:**\n${episode3Custom}\n` : ''}${!episode1Custom && !episode2Custom && !episode3Custom ? '• （未記入）' : ''}
+
 ---
 
 ## 🎯 ペルソナ作成指示
 
-上記の選択された属性（合計${totalSelected}項目）を自然に統合し、以下の構成で大学生ペルソナを作成してください：
+上記の選択された属性（合計${totalSelected}項目）と自由記述エピソードを自然に統合し、以下の構成で大学生ペルソナを作成してください。特に自由記述エピソードは具体的な行動や体験として重要視し、ペルソナの核となる特徴やストーリーに反映させてください：
 
 ### 1. 基本プロフィール
 - 名前（仮名）、年齢、学部学科
