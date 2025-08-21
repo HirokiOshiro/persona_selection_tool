@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 25%, #f1f5f9 50%, #e8f4f8 75%, #f8fafc 100%);
             min-height: 100vh;
             padding: 20px;
         }
@@ -28,7 +28,7 @@
         }
 
         .header {
-            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+            background: linear-gradient(135deg, #4c63d2 0%, #667eea 50%, #764ba2 100%);
             color: white;
             padding: 30px;
             text-align: center;
@@ -70,7 +70,7 @@
         }
 
         .progress-fill {
-            background: linear-gradient(90deg, #10b981, #3b82f6);
+            background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
             height: 100%;
             border-radius: 4px;
             transition: width 0.5s ease;
@@ -91,10 +91,47 @@
 
         .attribute-group {
             margin-bottom: 40px;
-            background: #f8fafc;
+            background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
             border-radius: 12px;
             padding: 24px;
             border-left: 4px solid #4f46e5;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .attribute-group:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .attribute-group[data-group="basic"] {
+            border-left-color: #ff6b6b;
+            background: linear-gradient(135deg, #fefefe 0%, #fffafa 100%);
+        }
+
+        .attribute-group[data-group="learning"] {
+            border-left-color: #4ecdc4;
+            background: linear-gradient(135deg, #fefefe 0%, #f9fffe 100%);
+        }
+
+        .attribute-group[data-group="psychology"] {
+            border-left-color: #45b7d1;
+            background: linear-gradient(135deg, #fefefe 0%, #fafcff 100%);
+        }
+
+        .attribute-group[data-group="relationships"] {
+            border-left-color: #f9ca24;
+            background: linear-gradient(135deg, #fefefe 0%, #fffef9 100%);
+        }
+
+        .attribute-group[data-group="growth"] {
+            border-left-color: #6c5ce7;
+            background: linear-gradient(135deg, #fefefe 0%, #fcfbff 100%);
+        }
+
+        .attribute-group[data-group="episodes"] {
+            border-left-color: #fd79a8;
+            background: linear-gradient(135deg, #fefefe 0%, #fffafc 100%);
         }
 
         .group-header {
@@ -151,8 +188,10 @@
         }
 
         .option-item.selected {
-            background: #eef2ff;
-            border: 1px solid #4f46e5;
+            background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+            border: 2px solid #667eea;
+            transform: scale(1.01);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
         }
 
         .checkbox {
@@ -169,8 +208,10 @@
         }
 
         .checkbox.checked {
-            background: #4f46e5;
-            border-color: #4f46e5;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-color: #667eea;
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
         }
 
         .checkbox.checked::after {
@@ -199,11 +240,12 @@
         }
 
         .results-panel {
-            background: #f1f5f9;
+            background: linear-gradient(135deg, #fff 0%, #f0f9ff 50%, #fef3c7 100%);
             padding: 30px;
             border-left: 1px solid #e2e8f0;
             overflow-y: auto;
             max-height: 80vh;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
         }
 
         .results-header {
@@ -281,15 +323,15 @@
         }
 
         .btn-primary {
-            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+            background: linear-gradient(90deg, #667eea, #764ba2);
             color: white;
-            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
 
         .btn-primary:hover {
-            background: linear-gradient(90deg, #4338ca, #6d28d9);
+            background: linear-gradient(90deg, #4c63d2, #667eea);
             transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
         .btn-secondary {
@@ -371,23 +413,81 @@
             letter-spacing: 0.5px;
         }
 
+        .search-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .search-toggle:hover {
+            background: linear-gradient(135deg, #4c63d2, #667eea);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
         .search-box {
-            margin-bottom: 20px;
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             background: white;
-            padding: 16px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 10;
+            padding: 20px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+            z-index: 999;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .search-box.active {
+            transform: translateY(0);
+        }
+
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-close {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #64748b;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+            transition: color 0.2s;
+        }
+
+        .search-close:hover {
+            color: #475569;
         }
 
         .search-input {
             width: 100%;
-            padding: 10px 16px;
+            padding: 12px 50px 12px 16px;
             border: 2px solid #e2e8f0;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 16px;
             outline: none;
             transition: border-color 0.2s;
         }
@@ -427,8 +527,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🎭 ペルソナ属性選択ツール</h1>
-            <p>あなたに当てはまる属性を選択してください（複数選択可）</p>
+            <h1>ペルソナ属性選択ツール</h1>
+            <p>学生の特性や背景を選択してペルソナを作成します（複数選択可）</p>
         </div>
 
         <div class="progress-section">
@@ -449,20 +549,28 @@
             </div>
         </div>
 
+        <button class="search-toggle" onclick="toggleSearch()" id="searchToggle">
+            🔍
+        </button>
+
+        <div class="search-box" id="searchBox">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="属性や内容で検索..." id="searchInput">
+                <button class="search-close" onclick="closeSearch()">×</button>
+            </div>
+        </div>
+
         <div class="main-content">
             <div class="form-section">
-                <div class="search-box">
-                    <input type="text" class="search-input" placeholder="属性や内容で検索..." id="searchInput">
-                </div>
 
                 <!-- 基本属性と生活背景 -->
                 <div class="attribute-group" data-group="basic">
                     <div class="group-header" onclick="toggleGroup(this)">
                         <span class="group-icon">🏠</span>
                         <h2>基本属性と生活背景</h2>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon">▶</span>
                     </div>
-                    <div class="group-content">
+                    <div class="group-content collapsed">
                         <!-- 学年・所属 -->
                         <h3 style="margin: 16px 0 12px 0; color: #475569; font-size: 14px;">🎯 学年・所属</h3>
                         <div class="option-item" onclick="toggleOption(this)" data-value="1年生">
@@ -498,6 +606,13 @@
                             <div class="option-text">
                                 <div class="option-main">大学院生</div>
                                 <div class="option-desc">より専門的な学びに集中している</div>
+                            </div>
+                        </div>
+                        <div class="option-item" onclick="toggleOption(this)" data-value="正規留学生">
+                            <div class="checkbox"></div>
+                            <div class="option-text">
+                                <div class="option-main">正規留学生</div>
+                                <div class="option-desc">学位取得のため正規課程に在籍している外国人学生</div>
                             </div>
                         </div>
                         <div class="option-item" onclick="toggleOption(this)" data-value="留年生">
@@ -1118,9 +1233,9 @@
                     <div class="group-header" onclick="toggleGroup(this)">
                         <span class="group-icon">💭</span>
                         <h2>価値観・判断の基準</h2>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon">▶</span>
                     </div>
-                    <div class="group-content">
+                    <div class="group-content collapsed">
                         <!-- 将来への考え方 -->
                         <h3 style="margin: 16px 0 12px 0; color: #475569; font-size: 14px;">🎯 将来への考え方</h3>
                         <div class="option-item" onclick="toggleOption(this)" data-value="明確なビジョンあり">
@@ -1285,6 +1400,13 @@
                             <div class="option-text">
                                 <div class="option-main">複数の自分が存在</div>
                                 <div class="option-desc">場面によって違う自分になっている感覚</div>
+                            </div>
+                        </div>
+                        <div class="option-item" onclick="toggleOption(this)" data-value="文化的適応の悩み">
+                            <div class="checkbox"></div>
+                            <div class="option-text">
+                                <div class="option-main">文化的適応の悩み</div>
+                                <div class="option-desc">出身国の文化と日本の文化の間で自分の立ち位置に迷っている</div>
                             </div>
                         </div>
                         <div class="option-item" onclick="toggleOption(this)" data-value="変化している最中">
@@ -1501,9 +1623,9 @@
                     <div class="group-header" onclick="toggleGroup(this)">
                         <span class="group-icon">📚</span>
                         <h2>学習・知識に対するスタンス</h2>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon">▶</span>
                     </div>
-                    <div class="group-content">
+                    <div class="group-content collapsed">
                         <!-- 大学の学びの捉え方 -->
                         <h3 style="margin: 16px 0 12px 0; color: #475569; font-size: 14px;">📚 大学の学びの捉え方</h3>
                         <div class="option-item" onclick="toggleOption(this)" data-value="知的好奇心の場">
@@ -1884,9 +2006,9 @@
                     <div class="group-header" onclick="toggleGroup(this)">
                         <span class="group-icon">🤝</span>
                         <h2>他者との関係</h2>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon">▶</span>
                     </div>
-                    <div class="group-content">
+                    <div class="group-content collapsed">
                         <!-- 期待を気にする相手 -->
                         <h3 style="margin: 16px 0 12px 0; color: #475569; font-size: 14px;">👥 期待を気にする相手</h3>
                         <div class="option-item" onclick="toggleOption(this)" data-value="両親・家族">
@@ -1943,6 +2065,13 @@
                             <div class="option-text">
                                 <div class="option-main">世間一般</div>
                                 <div class="option-desc">社会的な「普通」や「常識」を意識する</div>
+                            </div>
+                        </div>
+                        <div class="option-item" onclick="toggleOption(this)" data-value="日本人学生">
+                            <div class="checkbox"></div>
+                            <div class="option-text">
+                                <div class="option-main">日本人学生</div>
+                                <div class="option-desc">日本人学生に受け入れられたいと思っている</div>
                             </div>
                         </div>
                         <div class="option-item" onclick="toggleOption(this)" data-value="将来の自分">
@@ -2274,9 +2403,9 @@
                     <div class="group-header" onclick="toggleGroup(this)">
                         <span class="group-icon">🌱</span>
                         <h2>セルフ・オーサーシップの兆し</h2>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon">▶</span>
                     </div>
-                    <div class="group-content">
+                    <div class="group-content collapsed">
                         <!-- 主体性の萌芽 -->
                         <h3 style="margin: 16px 0 12px 0; color: #475569; font-size: 14px;">🎯 主体性の萌芽</h3>
                         <div class="option-item" onclick="toggleOption(this)" data-value="小さな決断の積み重ね">
@@ -2767,9 +2896,9 @@
                     <div class="group-header" onclick="toggleGroup(this)">
                         <span class="group-icon">📖</span>
                         <h2>具体的エピソード</h2>
-                        <span class="collapse-icon">▼</span>
+                        <span class="collapse-icon">▶</span>
                     </div>
-                    <div class="group-content">
+                    <div class="group-content collapsed">
                         <!-- エピソード1 -->
                         <h3 style="margin: 16px 0 12px 0; color: #475569; font-size: 14px;">📖 エピソード1：日常の意思決定</h3>
                         <div class="option-item" onclick="toggleOption(this)" data-value="履修登録で迷った">
@@ -2878,6 +3007,13 @@
                             <div class="option-text">
                                 <div class="option-main">勉強方法の見直し</div>
                                 <div class="option-desc">従来のやり方の限界を感じて変更した</div>
+                            </div>
+                        </div>
+                        <div class="option-item" onclick="toggleOption(this)" data-value="日本語学習の壁">
+                            <div class="checkbox"></div>
+                            <div class="option-text">
+                                <div class="option-main">日本語学習の壁</div>
+                                <div class="option-desc">授業や友人との会話で日本語の理解に苦労している</div>
                             </div>
                         </div>
                         <div class="option-item" onclick="toggleOption(this)" data-value="グループワーク">
@@ -3517,6 +3653,45 @@ ${selections.episodes.length > 0 ? selections.episodes.map(item => `• ${item}`
                 }, 2000);
             }
         }
+
+        // Search toggle functionality
+        function toggleSearch() {
+            const searchBox = document.getElementById('searchBox');
+            const searchToggle = document.getElementById('searchToggle');
+            
+            if (searchBox.classList.contains('active')) {
+                closeSearch();
+            } else {
+                searchBox.classList.add('active');
+                searchToggle.innerHTML = '×';
+                setTimeout(() => {
+                    document.getElementById('searchInput').focus();
+                }, 300);
+            }
+        }
+
+        function closeSearch() {
+            const searchBox = document.getElementById('searchBox');
+            const searchToggle = document.getElementById('searchToggle');
+            const searchInput = document.getElementById('searchInput');
+            
+            searchBox.classList.remove('active');
+            searchToggle.innerHTML = '🔍';
+            searchInput.value = '';
+            
+            // Clear search results
+            const options = document.querySelectorAll('.option-item');
+            options.forEach(option => {
+                option.style.display = 'flex';
+            });
+        }
+
+        // Close search with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeSearch();
+            }
+        });
 
         // Search functionality
         document.getElementById('searchInput').addEventListener('input', function(e) {
