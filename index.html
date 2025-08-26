@@ -77,6 +77,133 @@
             width: 0%;
         }
 
+        /* ペルソナ数選択セクション */
+        .persona-count-section {
+            background: #f8fafc;
+            padding: 20px 30px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .persona-count-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .persona-count-header h3 {
+            font-size: 18px;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+
+        .persona-count-header p {
+            font-size: 14px;
+            color: #64748b;
+            margin: 0;
+        }
+
+        .persona-count-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .persona-count-btn {
+            padding: 10px 20px;
+            border: 2px solid #e2e8f0;
+            background: white;
+            color: #64748b;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 60px;
+        }
+
+        .persona-count-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+            transform: translateY(-1px);
+        }
+
+        .persona-count-btn.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-color: #667eea;
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .persona-count-btn:focus {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+
+        /* ペルソナタブセクション */
+        .persona-tabs-section {
+            background: #f1f5f9;
+            padding: 15px 30px 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: none;
+        }
+
+        .persona-tabs-section.show {
+            display: block;
+        }
+
+        .persona-tabs {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .persona-tab {
+            padding: 12px 20px;
+            border: none;
+            background: #e2e8f0;
+            color: #64748b;
+            border-radius: 8px 8px 0 0;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            position: relative;
+            min-width: 120px;
+        }
+
+        .persona-tab:hover {
+            background: #cbd5e1;
+            color: #475569;
+        }
+
+        .persona-tab.active {
+            background: white;
+            color: #1e293b;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .tab-progress {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            color: #64748b;
+            margin-top: 2px;
+        }
+
+        .persona-tab.active .tab-progress {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .persona-tab:focus {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+
         .main-content {
             display: grid;
             grid-template-columns: 1fr 300px;
@@ -511,6 +638,104 @@
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
+        /* 操作手順セクション */
+        .instructions-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e8f4f8 100%);
+            padding: 20px 30px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .instructions-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .instructions-title {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 0;
+        }
+
+        .instructions-title span {
+            margin-left: 8px;
+        }
+
+        .instructions-toggle {
+            font-size: 18px;
+            color: #64748b;
+            transition: transform 0.2s ease;
+        }
+
+        .instructions-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .instructions-content.expanded {
+            max-height: 300px;
+        }
+
+        .instructions-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 1200px) {
+            .instructions-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .instructions-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .instruction-step {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .step-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 24px;
+            margin-right: 10px;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+            display: inline-block;
+        }
+
+        .step-description {
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.4;
+        }
+
         @media (max-width: 768px) {
             .main-content {
                 grid-template-columns: 1fr;
@@ -528,7 +753,69 @@
     <div class="container">
         <div class="header">
             <h1>ペルソナ属性選択ツール</h1>
-            <p>学生の特性や背景を選択してペルソナを作成します（複数選択可）</p>
+            <p>学生の特性や背景を選択してペルソナ作成用のプロンプトを生成します（複数選択可）</p>
+        </div>
+
+        <!-- 操作手順セクション -->
+        <div class="instructions-section">
+            <div class="instructions-header" onclick="toggleInstructions()">
+                <h3 class="instructions-title">
+                    📋 <span>使い方ガイド</span>
+                </h3>
+                <div class="instructions-toggle" id="instructionsToggle">▼</div>
+            </div>
+            <div class="instructions-content expanded" id="instructionsContent">
+                <div class="instructions-steps">
+                    <div class="instruction-step">
+                        <span class="step-number">1</span>
+                        <div class="step-title">ペルソナ数を選択</div>
+                        <div class="step-description">作成したいペルソナの数（1〜5名）を選択してください</div>
+                    </div>
+                    <div class="instruction-step">
+                        <span class="step-number">2</span>
+                        <div class="step-title">属性を選択</div>
+                        <div class="step-description">各セクションから該当する属性を複数選択できます（居住形態は1つのみ）</div>
+                    </div>
+                    <div class="instruction-step">
+                        <span class="step-number">3</span>
+                        <div class="step-title">エピソードを記入</div>
+                        <div class="step-description">必要に応じて具体的なエピソードを自由記述欄に入力してください</div>
+                    </div>
+                    <div class="instruction-step">
+                        <span class="step-number">4</span>
+                        <div class="step-title">プロンプトを生成</div>
+                        <div class="step-description">「プロンプト生成」ボタンでAI用の指示文を作成し、コピーして利用してください</div>
+                    </div>
+                </div>
+                <div style="margin-top: 15px; padding: 12px; background: rgba(102, 126, 234, 0.1); border-radius: 8px; font-size: 13px; color: #475569;">
+                    💡 <strong>便利機能:</strong> 「ランダム選択」で自動選択、右側のパネルで選択状況を確認、データは自動保存されます
+                </div>
+            </div>
+        </div>
+
+        <!-- ペルソナ数選択セクション -->
+        <div class="persona-count-section">
+            <div class="persona-count-header" id="persona-count-header">
+                <h3>👥 作成するペルソナ数を選択</h3>
+                <p>最大5名分までのペルソナを一括作成するプロンプトを出力できます</p>
+            </div>
+            <div class="persona-count-buttons" role="radiogroup" aria-labelledby="persona-count-header">
+                <button class="persona-count-btn active" data-count="1" onclick="setPersonaCount(1)" role="radio" aria-checked="true" aria-label="1名のペルソナを作成">1名</button>
+                <button class="persona-count-btn" data-count="2" onclick="setPersonaCount(2)" role="radio" aria-checked="false" aria-label="2名のペルソナを作成">2名</button>
+                <button class="persona-count-btn" data-count="3" onclick="setPersonaCount(3)" role="radio" aria-checked="false" aria-label="3名のペルソナを作成">3名</button>
+                <button class="persona-count-btn" data-count="4" onclick="setPersonaCount(4)" role="radio" aria-checked="false" aria-label="4名のペルソナを作成">4名</button>
+                <button class="persona-count-btn" data-count="5" onclick="setPersonaCount(5)" role="radio" aria-checked="false" aria-label="5名のペルソナを作成">5名</button>
+            </div>
+        </div>
+
+        <!-- ペルソナタブセクション -->
+        <div class="persona-tabs-section" id="personaTabsSection">
+            <div class="persona-tabs" id="personaTabs" role="tablist" aria-label="ペルソナ選択">
+                <button class="persona-tab active" data-persona="1" onclick="switchPersona(1)" role="tab" aria-selected="true" aria-controls="persona-content-1">
+                    ペルソナ1
+                    <span class="tab-progress" id="tabProgress1">0%</span>
+                </button>
+            </div>
         </div>
 
         <div class="progress-section">
@@ -549,19 +836,19 @@
             </div>
         </div>
 
-        <button class="search-toggle" onclick="toggleSearch()" id="searchToggle">
+        <button class="search-toggle" onclick="toggleSearch()" id="searchToggle" aria-label="検索を開く" title="属性の検索">
             🔍
         </button>
 
         <div class="search-box" id="searchBox">
             <div class="search-container">
-                <input type="text" class="search-input" placeholder="属性や内容で検索..." id="searchInput">
-                <button class="search-close" onclick="closeSearch()">×</button>
+                <input type="text" class="search-input" placeholder="属性や内容で検索..." id="searchInput" aria-label="属性検索">
+                <button class="search-close" onclick="closeSearch()" aria-label="検索を閉じる">×</button>
             </div>
         </div>
 
         <div class="main-content">
-            <div class="form-section">
+            <div class="form-section" role="main" aria-label="ペルソナ属性選択フォーム" id="persona-content-1">
 
                 <!-- 基本属性と生活背景 -->
                 <div class="attribute-group" data-group="basic">
@@ -665,93 +952,93 @@
                             </div>
                         </div>
 
-                        <!-- 居住形態 -->
-                        <h3 style="margin: 24px 0 12px 0; color: #475569; font-size: 14px;">🏠 居住形態</h3>
-                        <div class="option-item" onclick="toggleOption(this)" data-value="実家暮らし（安心型）">
+                        <!-- 居住形態（択一式） -->
+                        <h3 style="margin: 24px 0 12px 0; color: #475569; font-size: 14px;">🏠 居住形態 <span style="font-size: 12px; color: #ef4444;">（1つのみ選択）</span></h3>
+                        <div class="option-item" onclick="toggleOption(this)" data-value="実家暮らし（安心型）" data-exclusive="residence">
                             <div class="checkbox"></div>
                             <div class="option-text">
                                 <div class="option-main">実家暮らし（安心型）</div>
                                 <div class="option-desc">家族と一緒で安心だが自立への憧れもある</div>
                             </div>
                         </div>
-                        <div class="option-item" onclick="toggleOption(this)" data-value="一人暮らし（自由型）">
+                        <div class="option-item" onclick="toggleOption(this)" data-value="一人暮らし（自由型）" data-exclusive="residence">
                             <div class="checkbox"></div>
                             <div class="option-text">
                                 <div class="option-main">一人暮らし（自由型）</div>
                                 <div class="option-desc">自由だが時々孤独感や経済的不安もある</div>
                             </div>
                         </div>
-                        <div class="option-item" onclick="toggleOption(this)" data-value="学生寮">
+                        <div class="option-item" onclick="toggleOption(this)" data-value="学生寮" data-exclusive="residence">
                             <div class="checkbox"></div>
                             <div class="option-text">
                                 <div class="option-main">学生寮</div>
                                 <div class="option-desc">同世代との共同生活で刺激が多い</div>
                             </div>
                         </div>
-                        <div class="option-item" onclick="toggleOption(this)" data-value="シェアハウス">
+                        <div class="option-item" onclick="toggleOption(this)" data-value="シェアハウス" data-exclusive="residence">
                             <div class="checkbox"></div>
                             <div class="option-text">
                                 <div class="option-main">シェアハウス</div>
                                 <div class="option-desc">多様な人との交流を楽しんでいる</div>
                             </div>
                         </div>
-                        <div class="option-item" onclick="toggleOption(this)" data-value="一人暮らし（忙殺型）">
+                        <div class="option-item" onclick="toggleOption(this)" data-value="一人暮らし（忙殺型）" data-exclusive="residence">
                             <div class="checkbox"></div>
                             <div class="option-text">
                                 <div class="option-main">一人暮らし（忙殺型）</div>
                                 <div class="option-desc">家事や金銭管理が大変で勉強時間が削られがち</div>
                             </div>
                         </div>
-                        <div class="option-item" onclick="toggleOption(this)" data-value="実家暮らし（通学困難型）">
+                        <div class="option-item" onclick="toggleOption(this)" data-value="実家暮らし（通学困難型）" data-exclusive="residence">
                             <div class="checkbox"></div>
                             <div class="option-text">
                                 <div class="option-main">実家暮らし（通学困難型）</div>
                                 <div class="option-desc">通学時間が長く疲れるが家族のサポートは心強い</div>
                             </div>
                         </div>
-                        <div class="option-item" onclick="toggleOption(this)" data-value="親戚宅">
+                        <div class="option-item" onclick="toggleOption(this)" data-value="親戚宅" data-exclusive="residence">
                             <div class="checkbox"></div>
                             <div class="option-text">
                                 <div class="option-main">親戚宅</div>
                                 <div class="option-desc">複雑な家庭事情の中で頑張っている</div>
                             </div>
                         </div>
-                        <div class="option-item" onclick="toggleOption(this)" data-value="下宿">
+                        <div class="option-item" onclick="toggleOption(this)" data-value="下宿" data-exclusive="residence">
                             <div class="checkbox"></div>
                             <div class="option-text">
                                 <div class="option-main">下宿</div>
                                 <div class="option-desc">アパートより安いが規則やプライバシーに制約がある</div>
                             </div>
                         </div>
-                        <div class="option-item" onclick="toggleOption(this)" data-value="祖父母宅">
+                        <div class="option-item" onclick="toggleOption(this)" data-value="祖父母宅" data-exclusive="residence">
                             <div class="checkbox"></div>
                             <div class="option-text">
                                 <div class="option-main">祖父母宅</div>
                                 <div class="option-desc">祖父母の面倒を見ながら大学に通っている</div>
                             </div>
                         </div>
-                        <div class="option-item" onclick="toggleOption(this)" data-value="パートナーとの同居">
+                        <div class="option-item" onclick="toggleOption(this)" data-value="パートナーとの同居" data-exclusive="residence">
                             <div class="checkbox"></div>
                             <div class="option-text">
                                 <div class="option-main">パートナーとの同居</div>
                                 <div class="option-desc">恋人と一緒に住んでいる</div>
                             </div>
                         </div>
-                        <div class="option-item" onclick="toggleOption(this)" data-value="友人との同居">
+                        <div class="option-item" onclick="toggleOption(this)" data-value="友人との同居" data-exclusive="residence">
                             <div class="checkbox"></div>
                             <div class="option-text">
                                 <div class="option-main">友人との同居</div>
                                 <div class="option-desc">気の合う友人と住居をシェアしている</div>
                             </div>
                         </div>
-                        <div class="option-item" onclick="toggleOption(this)" data-value="家族の介護のため実家">
+                        <div class="option-item" onclick="toggleOption(this)" data-value="家族の介護のため実家" data-exclusive="residence">
                             <div class="checkbox"></div>
                             <div class="option-text">
                                 <div class="option-main">家族の介護のため実家</div>
                                 <div class="option-desc">家族のサポートが必要で実家に残っている</div>
                             </div>
                         </div>
-                        <div class="option-item" onclick="toggleOption(this)" data-value="海外">
+                        <div class="option-item" onclick="toggleOption(this)" data-value="海外" data-exclusive="residence">
                             <div class="checkbox"></div>
                             <div class="option-text">
                                 <div class="option-main">海外</div>
@@ -3209,27 +3496,27 @@
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-number" id="basicCount">0</div>
-                        <div class="stat-label">基本属性</div>
+                        <div class="stat-label">基本属性と生活背景</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number" id="valuesCount">0</div>
-                        <div class="stat-label">価値観</div>
+                        <div class="stat-label">価値観・判断の基準</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number" id="learningCount">0</div>
-                        <div class="stat-label">学習</div>
+                        <div class="stat-label">学習・知識に対するスタンス</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number" id="relationshipsCount">0</div>
-                        <div class="stat-label">人間関係</div>
+                        <div class="stat-label">他者との関係</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number" id="growthCount">0</div>
-                        <div class="stat-label">成長</div>
+                        <div class="stat-label">セルフ・オーサーシップの兆し</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number" id="episodesCount">0</div>
-                        <div class="stat-label">エピソード</div>
+                        <div class="stat-label">具体的エピソード</div>
                     </div>
                 </div>
 
@@ -3241,13 +3528,13 @@
                         </div>
                     </div>
                     <div class="result-group" id="valuesResults">
-                        <div class="result-group-title">価値観・判断基準</div>
+                        <div class="result-group-title">価値観・判断の基準</div>
                         <div class="result-items">
                             <div class="result-item">まだ選択されていません</div>
                         </div>
                     </div>
                     <div class="result-group" id="learningResults">
-                        <div class="result-group-title">学習スタンス</div>
+                        <div class="result-group-title">学習・知識に対するスタンス</div>
                         <div class="result-items">
                             <div class="result-item">まだ選択されていません</div>
                         </div>
@@ -3259,7 +3546,7 @@
                         </div>
                     </div>
                     <div class="result-group" id="growthResults">
-                        <div class="result-group-title">成長の兆し</div>
+                        <div class="result-group-title">セルフ・オーサーシップの兆し</div>
                         <div class="result-items">
                             <div class="result-item">まだ選択されていません</div>
                         </div>
@@ -3281,6 +3568,9 @@
                     </button>
                     <button class="btn btn-secondary" onclick="clearAll()">
                         🗑️ リセット
+                    </button>
+                    <button class="btn btn-secondary" onclick="clearAllData()" style="background: #ef4444; border-color: #ef4444;">
+                        🗑️ 全データ削除
                     </button>
                 </div>
 
@@ -3309,14 +3599,296 @@
     </div>
 
     <script>
-        let selections = {
-            basic: [],
-            values: [],
-            learning: [],
-            relationships: [],
-            growth: [],
-            episodes: []
-        };
+        // 複数ペルソナ対応のデータ構造
+        let personaCount = 1;
+        let currentPersona = 1;
+        let allPersonaData = {};
+
+        // 初期化関数
+        function initializePersonaData() {
+            for (let i = 1; i <= 5; i++) {
+                allPersonaData[i] = {
+                    selections: {
+                        basic: [],
+                        values: [],
+                        learning: [],
+                        relationships: [],
+                        growth: [],
+                        episodes: []
+                    },
+                    episodes: {
+                        episode1: '',
+                        episode2: '',
+                        episode3: ''
+                    }
+                };
+            }
+        }
+
+        // 現在のペルソナのselections（深いコピーでクロスコンタミネーションを防ぐ）
+        let selections = {};
+        if (allPersonaData[currentPersona] && allPersonaData[currentPersona].selections) {
+            Object.keys(allPersonaData[currentPersona].selections).forEach(key => {
+                selections[key] = [...allPersonaData[currentPersona].selections[key]];
+            });
+        } else {
+            selections = {
+                basic: [],
+                values: [],
+                learning: [],
+                relationships: [],
+                growth: [],
+                episodes: []
+            };
+        }
+
+        // 初期化
+        initializePersonaData();
+
+        // ペルソナ数設定
+        function setPersonaCount(count) {
+            personaCount = count;
+            
+            // ボタンの状態更新
+            document.querySelectorAll('.persona-count-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-checked', 'false');
+            });
+            const activeBtn = document.querySelector(`[data-count="${count}"]`);
+            activeBtn.classList.add('active');
+            activeBtn.setAttribute('aria-checked', 'true');
+            
+            // タブセクションの表示/非表示
+            const tabsSection = document.getElementById('personaTabsSection');
+            if (count > 1) {
+                tabsSection.classList.add('show');
+                updatePersonaTabs();
+            } else {
+                tabsSection.classList.remove('show');
+                // 1名の場合は1番ペルソナに切り替え
+                switchPersona(1);
+            }
+            
+            // データの保存
+            saveToLocalStorage();
+        }
+
+        // ペルソナタブの更新
+        function updatePersonaTabs() {
+            const tabsContainer = document.getElementById('personaTabs');
+            tabsContainer.innerHTML = '';
+            
+            for (let i = 1; i <= personaCount; i++) {
+                const tab = document.createElement('button');
+                tab.className = `persona-tab ${i === currentPersona ? 'active' : ''}`;
+                tab.setAttribute('data-persona', i);
+                tab.setAttribute('role', 'tab');
+                tab.setAttribute('aria-selected', i === currentPersona ? 'true' : 'false');
+                tab.setAttribute('aria-controls', `persona-content-${i}`);
+                tab.setAttribute('id', `persona-tab-${i}`);
+                tab.onclick = () => switchPersona(i);
+                
+                const progress = calculatePersonaProgress(i);
+                tab.innerHTML = `
+                    ペルソナ${i}
+                    <span class="tab-progress" id="tabProgress${i}">${progress}%</span>
+                `;
+                
+                tabsContainer.appendChild(tab);
+            }
+        }
+
+        // ペルソナ切り替え
+        function switchPersona(personaNum) {
+            if (personaNum < 1 || personaNum > personaCount) return;
+            
+            // 現在のデータを保存
+            saveCurrentPersonaData();
+            
+            // ペルソナ切り替え
+            currentPersona = personaNum;
+            // 選択データの深いコピーを作成してクロスコンタミネーションを防ぐ
+            selections = {};
+            Object.keys(allPersonaData[currentPersona].selections).forEach(key => {
+                selections[key] = [...allPersonaData[currentPersona].selections[key]];
+            });
+            
+            // UI更新
+            updateUIForCurrentPersona();
+            updatePersonaTabs();
+            updateProgress();
+            
+            // ローカルストレージに保存
+            saveToLocalStorage();
+        }
+
+        // 現在のペルソナデータを保存
+        function saveCurrentPersonaData() {
+            // 深いコピーを作成してクロスコンタミネーションを完全に防ぐ
+            const selectionsClone = {};
+            Object.keys(selections).forEach(key => {
+                selectionsClone[key] = [...selections[key]];
+            });
+            allPersonaData[currentPersona].selections = selectionsClone;
+            
+            // 自由記述欄の保存
+            const episode1 = document.getElementById('episode1Custom')?.value || '';
+            const episode2 = document.getElementById('episode2Custom')?.value || '';
+            const episode3 = document.getElementById('episode3Custom')?.value || '';
+            
+            allPersonaData[currentPersona].episodes = {
+                episode1: episode1,
+                episode2: episode2,
+                episode3: episode3
+            };
+        }
+
+        // 現在のペルソナに合わせてUIを更新
+        function updateUIForCurrentPersona() {
+            // すべての選択をクリア
+            document.querySelectorAll('.option-item').forEach(item => {
+                item.classList.remove('selected');
+                const checkbox = item.querySelector('.checkbox');
+                if (checkbox) {
+                    checkbox.innerHTML = '';
+                }
+            });
+            
+            // 現在のペルソナの選択を反映
+            const currentSelections = allPersonaData[currentPersona].selections;
+            Object.keys(currentSelections).forEach(category => {
+                currentSelections[category].forEach(value => {
+                    // CSS セレクタの特殊文字をエスケープ
+                    const escapedValue = value.replace(/[\(\)]/g, '\\$&');
+                    const item = document.querySelector(`[data-value="${escapedValue}"]`);
+                    if (item) {
+                        item.classList.add('selected');
+                        const checkbox = item.querySelector('.checkbox');
+                        if (checkbox) {
+                            checkbox.innerHTML = '✓';
+                        }
+                    } else {
+                        // フォールバック: 全ての要素を調べて直接比較
+                        const allItems = document.querySelectorAll('.option-item');
+                        for (let optionItem of allItems) {
+                            if (optionItem.dataset.value === value) {
+                                optionItem.classList.add('selected');
+                                const checkbox = optionItem.querySelector('.checkbox');
+                                if (checkbox) {
+                                    checkbox.innerHTML = '✓';
+                                }
+                                break;
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // 自由記述欄の復元
+            const episodes = allPersonaData[currentPersona].episodes;
+            const episode1Input = document.getElementById('episode1Custom');
+            const episode2Input = document.getElementById('episode2Custom');
+            const episode3Input = document.getElementById('episode3Custom');
+            
+            if (episode1Input) episode1Input.value = episodes.episode1 || '';
+            if (episode2Input) episode2Input.value = episodes.episode2 || '';
+            if (episode3Input) episode3Input.value = episodes.episode3 || '';
+        }
+
+        // ペルソナの進捗計算
+        function calculatePersonaProgress(personaNum) {
+            const personaData = allPersonaData[personaNum];
+            if (!personaData) return 0;
+            
+            // 6つのカテゴリーそれぞれで選択があるかチェック（各カテゴリー最大16.67%）
+            const categories = ['basic', 'values', 'learning', 'relationships', 'growth', 'episodes'];
+            const categoriesWithSelections = categories.filter(cat => 
+                personaData.selections[cat] && personaData.selections[cat].length > 0
+            ).length;
+            
+            // 3つのエピソードで記述があるかチェック（各エピソード最大16.67%）
+            const episodes = personaData.episodes || {};
+            const episodesWithContent = Object.values(episodes).filter(ep => 
+                ep && ep.trim().length > 0
+            ).length;
+            
+            // 全体の進捗（カテゴリー6個 + エピソード3個 = 9個の要素）
+            const totalElements = 9;
+            const completedElements = categoriesWithSelections + episodesWithContent;
+            
+            return Math.min(100, Math.round((completedElements / totalElements) * 100));
+        }
+
+        // LocalStorageに保存
+        function saveToLocalStorage() {
+            try {
+                const dataToSave = {
+                    personaCount: personaCount,
+                    currentPersona: currentPersona,
+                    allPersonaData: allPersonaData,
+                    lastUpdated: new Date().toISOString()
+                };
+                localStorage.setItem('personaToolData', JSON.stringify(dataToSave));
+            } catch (error) {
+                console.warn('データの保存に失敗しました:', error);
+            }
+        }
+
+        // LocalStorageから復元
+        function loadFromLocalStorage() {
+            try {
+                const savedData = localStorage.getItem('personaToolData');
+                if (savedData) {
+                    const parsed = JSON.parse(savedData);
+                    personaCount = parsed.personaCount || 1;
+                    currentPersona = parsed.currentPersona || 1;
+                    allPersonaData = parsed.allPersonaData || {};
+                    
+                    // 不完全なデータの補完
+                    for (let i = 1; i <= 5; i++) {
+                        if (!allPersonaData[i]) {
+                            allPersonaData[i] = {
+                                selections: {
+                                    basic: [],
+                                    values: [],
+                                    learning: [],
+                                    relationships: [],
+                                    growth: [],
+                                    episodes: []
+                                },
+                                episodes: {
+                                    episode1: '',
+                                    episode2: '',
+                                    episode3: ''
+                                }
+                            };
+                        }
+                    }
+                    
+                    // selectionsの参照を更新
+                    selections = allPersonaData[currentPersona].selections;
+                    
+                    // UI更新
+                    setPersonaCount(personaCount);
+                    updateUIForCurrentPersona();
+                    updateProgress();
+                    
+                    // データ復元完了
+                    return true;
+                }
+            } catch (error) {
+                console.warn('データの復元に失敗しました:', error);
+            }
+            return false;
+        }
+
+        // データクリア機能
+        function clearAllData() {
+            if (confirm('すべてのペルソナデータをクリアしますか？この操作は取り消せません。')) {
+                localStorage.removeItem('personaToolData');
+                location.reload();
+            }
+        }
 
         function toggleGroup(header) {
             const content = header.nextElementSibling;
@@ -3326,22 +3898,80 @@
             icon.textContent = content.classList.contains('collapsed') ? '▶' : '▼';
         }
 
+        // すべてのセクションを展開する関数
+        function expandAllSections() {
+            document.querySelectorAll('.group-header').forEach(header => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('.collapse-icon');
+                
+                if (content && content.classList.contains('collapsed')) {
+                    content.classList.remove('collapsed');
+                    if (icon) {
+                        icon.textContent = '▼';
+                    }
+                }
+            });
+        }
+
+        // 操作手順セクションの開閉機能
+        function toggleInstructions() {
+            const content = document.getElementById('instructionsContent');
+            const toggle = document.getElementById('instructionsToggle');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                toggle.textContent = '▶';
+                toggle.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('expanded');
+                toggle.textContent = '▼';
+                toggle.style.transform = 'rotate(0deg)';
+            }
+        }
+
         function toggleOption(element) {
             const checkbox = element.querySelector('.checkbox');
             const value = element.dataset.value;
             const group = element.closest('.attribute-group').dataset.group;
+            const exclusiveGroup = element.dataset.exclusive;
             
-            if (checkbox.classList.contains('checked')) {
-                checkbox.classList.remove('checked');
+            if (element.classList.contains('selected')) {
+                // 選択解除
+                checkbox.innerHTML = '';
                 element.classList.remove('selected');
                 selections[group] = selections[group].filter(item => item !== value);
             } else {
-                checkbox.classList.add('checked');
+                // 択一式グループの場合、同じグループの他の選択を解除
+                if (exclusiveGroup) {
+                    const sameGroupItems = document.querySelectorAll(`[data-exclusive="${exclusiveGroup}"]`);
+                    sameGroupItems.forEach(item => {
+                        if (item !== element && item.classList.contains('selected')) {
+                            const itemCheckbox = item.querySelector('.checkbox');
+                            const itemValue = item.dataset.value;
+                            
+                            itemCheckbox.innerHTML = '';
+                            item.classList.remove('selected');
+                            selections[group] = selections[group].filter(sel => sel !== itemValue);
+                        }
+                    });
+                }
+                
+                // 新しい選択を追加
+                checkbox.innerHTML = '✓';
                 element.classList.add('selected');
                 selections[group].push(value);
             }
             
+            // 現在のペルソナデータを更新（深いコピーでクロスコンタミネーションを防ぐ）
+            const selectionsClone = {};
+            Object.keys(selections).forEach(key => {
+                selectionsClone[key] = [...selections[key]];
+            });
+            allPersonaData[currentPersona].selections = selectionsClone;
+            
             updateResults();
+            updatePersonaTabs();
+            saveToLocalStorage();
         }
 
         function updateResults() {
@@ -3402,44 +4032,71 @@
         }
 
         function generatePrompt() {
-            const totalSelected = Object.values(selections).reduce((sum, arr) => sum + arr.length, 0);
+            // ローディング状態を開始
+            const generateBtn = document.getElementById('generateBtn');
+            const originalText = generateBtn.textContent;
+            generateBtn.textContent = '⏳ 生成中...';
+            generateBtn.disabled = true;
             
-            // 自由記述欄の内容を取得
-            const episode1Custom = document.getElementById('episode1Custom').value.trim();
-            const episode2Custom = document.getElementById('episode2Custom').value.trim();
-            const episode3Custom = document.getElementById('episode3Custom').value.trim();
+            // 処理を少し遅延させてローディング表示を見せる
+            setTimeout(() => {
+                try {
+                    // 現在のペルソナデータを保存
+                    saveCurrentPersonaData();
             
-            if (totalSelected === 0 && !episode1Custom && !episode2Custom && !episode3Custom) {
-                alert('少なくとも1つの属性を選択するか、自由記述欄に記入してください。');
+            // 複数ペルソナのデータをチェック
+            const personasToGenerate = [];
+            let hasValidData = false;
+            
+            for (let i = 1; i <= personaCount; i++) {
+                const personaData = allPersonaData[i];
+                const totalSelected = Object.values(personaData.selections).reduce((sum, arr) => sum + arr.length, 0);
+                const episodeCount = Object.values(personaData.episodes).filter(ep => ep.trim().length > 0).length;
+                
+                if (totalSelected > 0 || episodeCount > 0) {
+                    personasToGenerate.push(i);
+                    hasValidData = true;
+                }
+            }
+            
+            if (!hasValidData) {
+                alert('少なくとも1つのペルソナで属性を選択するか、自由記述欄に記入してください。');
                 return;
             }
 
-            const prompt = `# 大学生ペルソナ作成指示
+            let prompt = '';
+            
+            if (personaCount === 1) {
+                // 単一ペルソナの場合（既存の形式）
+                const personaData = allPersonaData[1];
+                const totalSelected = Object.values(personaData.selections).reduce((sum, arr) => sum + arr.length, 0);
+                
+                prompt = `# 大学生ペルソナ作成指示
 
 以下の選択された属性に基づいて、リアルで具体的な大学生のペルソナを作成してください。
 
 ## 📝 選択された属性一覧
 
-### 🏠 基本属性と生活背景 (${selections.basic.length}項目選択)
-${selections.basic.length > 0 ? selections.basic.map(item => `• ${item}`).join('\n') : '• （未選択）'}
+### 🏠 基本属性と生活背景 (${personaData.selections.basic.length}項目選択)
+${personaData.selections.basic.length > 0 ? personaData.selections.basic.map(item => `• ${item}`).join('\n') : '• （未選択）'}
 
-### 💭 価値観・判断の基準 (${selections.values.length}項目選択)
-${selections.values.length > 0 ? selections.values.map(item => `• ${item}`).join('\n') : '• （未選択）'}
+### 💭 価値観・判断の基準 (${personaData.selections.values.length}項目選択)
+${personaData.selections.values.length > 0 ? personaData.selections.values.map(item => `• ${item}`).join('\n') : '• （未選択）'}
 
-### 📚 学習・知識に対するスタンス (${selections.learning.length}項目選択)
-${selections.learning.length > 0 ? selections.learning.map(item => `• ${item}`).join('\n') : '• （未選択）'}
+### 📚 学習・知識に対するスタンス (${personaData.selections.learning.length}項目選択)
+${personaData.selections.learning.length > 0 ? personaData.selections.learning.map(item => `• ${item}`).join('\n') : '• （未選択）'}
 
-### 🤝 他者との関係 (${selections.relationships.length}項目選択)
-${selections.relationships.length > 0 ? selections.relationships.map(item => `• ${item}`).join('\n') : '• （未選択）'}
+### 🤝 他者との関係 (${personaData.selections.relationships.length}項目選択)
+${personaData.selections.relationships.length > 0 ? personaData.selections.relationships.map(item => `• ${item}`).join('\n') : '• （未選択）'}
 
-### 🌱 セルフ・オーサーシップの兆し・成長 (${selections.growth.length}項目選択)
-${selections.growth.length > 0 ? selections.growth.map(item => `• ${item}`).join('\n') : '• （未選択）'}
+### 🌱 セルフ・オーサーシップの兆し・成長 (${personaData.selections.growth.length}項目選択)
+${personaData.selections.growth.length > 0 ? personaData.selections.growth.map(item => `• ${item}`).join('\n') : '• （未選択）'}
 
-### 📖 具体的エピソード (${selections.episodes.length}項目選択)
-${selections.episodes.length > 0 ? selections.episodes.map(item => `• ${item}`).join('\n') : '• （未選択）'}
+### 📖 具体的エピソード (${personaData.selections.episodes.length}項目選択)
+${personaData.selections.episodes.length > 0 ? personaData.selections.episodes.map(item => `• ${item}`).join('\n') : '• （未選択）'}
 
 ### ✍️ 自由記述エピソード
-${episode1Custom ? `**エピソード1（日常の意思決定）:**\n${episode1Custom}\n` : ''}${episode2Custom ? `**エピソード2（学習・成長）:**\n${episode2Custom}\n` : ''}${episode3Custom ? `**エピソード3（他者との関係）:**\n${episode3Custom}\n` : ''}${!episode1Custom && !episode2Custom && !episode3Custom ? '• （未記入）' : ''}
+${personaData.episodes.episode1 ? `**エピソード1（日常の意思決定）:**\n${personaData.episodes.episode1}\n` : ''}${personaData.episodes.episode2 ? `**エピソード2（学習・成長）:**\n${personaData.episodes.episode2}\n` : ''}${personaData.episodes.episode3 ? `**エピソード3（他者との関係）:**\n${personaData.episodes.episode3}\n` : ''}${!personaData.episodes.episode1 && !personaData.episodes.episode2 && !personaData.episodes.episode3 ? '• （未記入）' : ''}
 
 ---
 
@@ -3487,6 +4144,23 @@ ${episode1Custom ? `**エピソード1（日常の意思決定）:**\n${episode1
 - 注意すべき点・配慮事項
 - 成長を促すための具体的提案
 
+## 📊 CSV形式での出力とダウンロード
+
+ペルソナの詳細記述が完了したら、以下の**2つの形式**で出力してください：
+
+### 1. CSV形式のデータ表示
+以下のCSV形式でデータを表示してください：
+
+\`\`\`csv
+名前,年齢,学部学科,出身地,居住状況,経済状況,性格特性,価値観,学習姿勢,人間関係,主な課題,成長の兆し,特徴的エピソード,支援アプローチ
+\`\`\`
+
+### 2. CSVファイルのダウンロード提供
+**重要**: 上記のCSVデータを、ユーザーが**CSVファイルとしてダウンロード**できるよう出力してください。
+- ファイル名の提案：「persona_data_[日付].csv」
+- CSVファイルは日本語対応（UTF-8 BOM付き）で出力
+- 後続処理での活用を考慮した構造化データとして提供
+
 ## ⚠️ 作成時の注意点
 
 - **リアリティ重視**: 実在感があり、大学生として「こんな学生いる！」と感じられる人物像
@@ -3496,23 +4170,141 @@ ${episode1Custom ? `**エピソード1（日常の意思決定）:**\n${episode1
 - **教育的意味**: 多様な学生像の理解や成長の後押しの検討に具体的に役立つ内容
 
 選択された属性を矛盾なく統合し、教育支援に実際に活用できる詳細で魅力的なペルソナを作成してください。`;
+            } else {
+                // 複数ペルソナの場合（CSV対応）
+                prompt = `# 複数大学生ペルソナ作成指示（CSV出力対応）
 
-            document.getElementById('exportText').value = prompt;
-            document.getElementById('exportArea').style.display = 'block';
-            
-            // 案内メッセージを表示
-            showGenerationMessage();
-            
-            // プロンプト生成完了の通知
-            const generateBtn = document.getElementById('generateBtn');
-            const originalText = generateBtn.textContent;
-            generateBtn.textContent = '✅ 生成完了！';
-            generateBtn.style.background = '#10b981';
-            
-            setTimeout(() => {
-                generateBtn.textContent = originalText;
-                generateBtn.style.background = '';
-            }, 2000);
+以下の${personaCount}名のペルソナ設定に基づいて、リアルで具体的な大学生のペルソナを作成し、**最後にCSV形式でも出力**してください。
+
+`;
+                
+                // 各ペルソナの詳細を追加
+                personasToGenerate.forEach(personaNum => {
+                    const personaData = allPersonaData[personaNum];
+                    const totalSelected = Object.values(personaData.selections).reduce((sum, arr) => sum + arr.length, 0);
+                    
+                    prompt += `## 📝 ペルソナ${personaNum}の選択属性（合計${totalSelected}項目）
+
+### 🏠 基本属性と生活背景 (${personaData.selections.basic.length}項目)
+${personaData.selections.basic.length > 0 ? personaData.selections.basic.map(item => `• ${item}`).join('\n') : '• （未選択）'}
+
+### 💭 価値観・判断の基準 (${personaData.selections.values.length}項目)
+${personaData.selections.values.length > 0 ? personaData.selections.values.map(item => `• ${item}`).join('\n') : '• （未選択）'}
+
+### 📚 学習・知識に対するスタンス (${personaData.selections.learning.length}項目)
+${personaData.selections.learning.length > 0 ? personaData.selections.learning.map(item => `• ${item}`).join('\n') : '• （未選択）'}
+
+### 🤝 他者との関係 (${personaData.selections.relationships.length}項目)
+${personaData.selections.relationships.length > 0 ? personaData.selections.relationships.map(item => `• ${item}`).join('\n') : '• （未選択）'}
+
+### 🌱 セルフ・オーサーシップの兆し・成長 (${personaData.selections.growth.length}項目)
+${personaData.selections.growth.length > 0 ? personaData.selections.growth.map(item => `• ${item}`).join('\n') : '• （未選択）'}
+
+### 📖 具体的エピソード (${personaData.selections.episodes.length}項目)
+${personaData.selections.episodes.length > 0 ? personaData.selections.episodes.map(item => `• ${item}`).join('\n') : '• （未選択）'}
+
+### ✍️ 自由記述エピソード
+${personaData.episodes.episode1 ? `**エピソード1（日常の意思決定）:**\n${personaData.episodes.episode1}\n` : ''}${personaData.episodes.episode2 ? `**エピソード2（学習・成長）:**\n${personaData.episodes.episode2}\n` : ''}${personaData.episodes.episode3 ? `**エピソード3（他者との関係）:**\n${personaData.episodes.episode3}\n` : ''}${!personaData.episodes.episode1 && !personaData.episodes.episode2 && !personaData.episodes.episode3 ? '• （未記入）' : ''}
+
+---
+
+`;
+                });
+
+                prompt += `## 🎯 ペルソナ作成指示
+
+各ペルソナについて、上記の選択された属性と自由記述エピソードを自然に統合し、以下の構成で大学生ペルソナを作成してください：
+
+### 1. 基本プロフィール
+- 名前（仮名）、年齢、学部学科
+- 出身地、居住状況、家族構成
+- 外見的特徴、第一印象
+
+### 2. 性格・価値観
+- 基本的な性格特性
+- 大切にしている価値観
+- 判断・選択の基準
+- 将来への考え方
+
+### 3. 学習・成長スタンス
+- 大学での学びに対する姿勢
+- 知識や情報への向き合い方
+- 成長や変化への取り組み
+- セルフ・オーサーシップの発達段階
+
+### 4. 人間関係・コミュニケーション
+- 友人・家族・教員との関係性
+- コミュニケーションの特徴
+- 他者からの期待への反応
+- 集団での立ち位置
+
+### 5. 現在の課題・成長の兆し
+- 抱えている悩みや違和感
+- 内的な葛藤や迷い
+- 最近感じている変化
+- 主体性発達の可能性
+
+### 6. 具体的な行動・エピソード
+- 日常的な行動パターン
+- 印象的な体験・決断
+- 成長を示すエピソード
+- 人物像を表す具体例
+
+### 7. 成長への示唆
+- このペルソナに効果的なアプローチ
+- 注意すべき点・配慮事項
+- 成長を促すための具体的提案
+
+## 📊 CSV形式での出力とダウンロード
+
+ペルソナの詳細記述が完了したら、以下の**2つの形式**で出力してください：
+
+### 1. CSV形式のデータ表示
+以下のCSV形式でデータを表示してください：
+
+\`\`\`csv
+名前,年齢,学部学科,出身地,居住状況,経済状況,性格特性,価値観,学習姿勢,人間関係,主な課題,成長の兆し,特徴的エピソード,支援アプローチ
+\`\`\`
+
+### 2. CSVファイルのダウンロード提供
+**重要**: 上記のCSVデータを、ユーザーが**CSVファイルとしてダウンロード**できるよう出力してください。
+- ファイル名の提案：「persona_data_[日付].csv」
+- CSVファイルは日本語対応（UTF-8 BOM付き）で出力
+- 後続処理での活用を考慮した構造化データとして提供
+
+## ⚠️ 作成時の注意点
+
+- **リアリティ重視**: 実在感があり、大学生として「こんな学生いる！」と感じられる人物像
+- **複雑性の表現**: 矛盾や迷いも含めた人間らしい多面性を表現
+- **発達途上性**: 固定的でなく、成長・変化の可能性を含む
+- **個別性の尊重**: ステレオタイプではなく、唯一無二の個性を持つ人物
+- **多様性の確保**: ${personaCount}名それぞれが異なる個性を持つよう配慮
+- **教育的意味**: 多様な学生像の理解や成長の後押しの検討に具体的に役立つ内容
+
+選択された属性を矛盾なく統合し、教育支援に実際に活用できる詳細で魅力的なペルソナを作成してください。`;
+            }
+
+                    document.getElementById('exportText').value = prompt;
+                    document.getElementById('exportArea').style.display = 'block';
+                    
+                    // 案内メッセージを表示
+                    showGenerationMessage();
+                    
+                } catch (error) {
+                    console.error('プロンプト生成エラー:', error);
+                    alert('プロンプトの生成中にエラーが発生しました。');
+                } finally {
+                    // プロンプト生成完了の通知
+                    generateBtn.textContent = '✅ 生成完了！';
+                    generateBtn.style.background = '#10b981';
+                    generateBtn.disabled = false;
+                    
+                    setTimeout(() => {
+                        generateBtn.textContent = originalText;
+                        generateBtn.style.background = '';
+                    }, 2000);
+                }
+            }, 300); // 300ms の遅延
         }
 
         function showGenerationMessage() {
@@ -3564,6 +4356,9 @@ ${episode1Custom ? `**エピソード1（日常の意思決定）:**\n${episode1
             // 現在の選択をクリア
             clearAllSelections();
 
+            // 選択対象の要素を収集
+            const optionsToSelect = [];
+
             // 各カテゴリのサブセクションごとに選択肢を収集
             document.querySelectorAll('.attribute-group').forEach(group => {
                 const groupType = group.dataset.group;
@@ -3598,22 +4393,15 @@ ${episode1Custom ? `**エピソード1（日常の意思決定）:**\n${episode1
                         // ランダムに1つ選択
                         const randomIndex = Math.floor(Math.random() * subsection.length);
                         const selectedOption = subsection[randomIndex];
-                        
-                        const checkbox = selectedOption.querySelector('.checkbox');
-                        const value = selectedOption.dataset.value;
-                        
-                        if (checkbox && !checkbox.classList.contains('checked')) {
-                            checkbox.classList.add('checked');
-                            selectedOption.classList.add('selected');
-                            selections[groupType].push(value);
-                        }
+                        optionsToSelect.push(selectedOption);
                     }
                 });
                 
                 // 追加で各カテゴリから0-2個をランダム選択（バリエーションを増やすため）
+                // ただし、択一式グループは除く
                 const allOptionsInGroup = group.querySelectorAll('.option-item[data-value]');
                 const unselectedOptions = Array.from(allOptionsInGroup).filter(option => 
-                    !option.classList.contains('selected')
+                    !optionsToSelect.includes(option) && !option.dataset.exclusive
                 );
                 
                 if (unselectedOptions.length > 0) {
@@ -3622,19 +4410,20 @@ ${episode1Custom ? `**エピソード1（日常の意思決定）:**\n${episode1
                     const additionalSelections = shuffled.slice(0, Math.min(additionalCount, unselectedOptions.length));
                     
                     additionalSelections.forEach(option => {
-                        const checkbox = option.querySelector('.checkbox');
-                        const value = option.dataset.value;
-                        
-                        if (checkbox && !checkbox.classList.contains('checked')) {
-                            checkbox.classList.add('checked');
-                            option.classList.add('selected');
-                            selections[groupType].push(value);
-                        }
+                        optionsToSelect.push(option);
                     });
                 }
             });
 
-            updateResults();
+            // 収集した要素をtoggleOption関数を使って正しく選択
+            optionsToSelect.forEach(option => {
+                if (option && !option.classList.contains('selected')) {
+                    toggleOption(option);
+                }
+            });
+            
+            // ランダム選択後にすべてのセクションを展開
+            expandAllSections();
             
             // 完了通知
             const randomBtn = event.target;
@@ -3661,14 +4450,26 @@ ${episode1Custom ? `**エピソード1（日常の意思決定）:**\n${episode1
                 episodes: []
             };
             
-            // UI要素をリセット
-            document.querySelectorAll('.checkbox').forEach(checkbox => {
-                checkbox.classList.remove('checked');
-            });
-            
+            // UI要素をリセット（正しいチェックマーク処理方法を使用）
             document.querySelectorAll('.option-item').forEach(item => {
                 item.classList.remove('selected');
+                const checkbox = item.querySelector('.checkbox');
+                if (checkbox) {
+                    checkbox.innerHTML = ''; // チェックマークを削除
+                }
             });
+            
+            // 現在のペルソナデータを更新
+            const selectionsClone = {};
+            Object.keys(selections).forEach(key => {
+                selectionsClone[key] = [...selections[key]];
+            });
+            allPersonaData[currentPersona].selections = selectionsClone;
+            
+            // データ保存とUI更新
+            updateResults();
+            updatePersonaTabs();
+            saveToLocalStorage();
         }
 
         function clearAll() {
@@ -3725,26 +4526,122 @@ ${episode1Custom ? `**エピソード1（日常の意思決定）:**\n${episode1
         }
 
         // Close search with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeSearch();
+        // ページ読み込み時の初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            // LocalStorageからデータを復元
+            if (!loadFromLocalStorage()) {
+                // 初回アクセスの場合、初期化
+                selections = allPersonaData[1].selections;
+                updateProgress();
             }
-        });
-
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const options = document.querySelectorAll('.option-item');
             
-            options.forEach(option => {
-                const text = option.textContent.toLowerCase();
-                if (text.includes(searchTerm)) {
-                    option.style.display = 'flex';
-                } else {
-                    option.style.display = 'none';
+            // 自由記述欄の変更イベント監視
+            const episodeInputs = ['episode1Custom', 'episode2Custom', 'episode3Custom'];
+            episodeInputs.forEach(inputId => {
+                const input = document.getElementById(inputId);
+                if (input) {
+                    input.addEventListener('input', function() {
+                        saveCurrentPersonaData();
+                        updatePersonaTabs();
+                        saveToLocalStorage();
+                    });
                 }
             });
         });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeSearch();
+                return;
+            }
+            
+            // タブ間のキーボードナビゲーション
+            if (personaCount > 1) {
+                const focusedElement = document.activeElement;
+                if (focusedElement && focusedElement.classList.contains('persona-tab')) {
+                    if (e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        const currentPersonaNum = parseInt(focusedElement.dataset.persona);
+                        const prevPersona = currentPersonaNum > 1 ? currentPersonaNum - 1 : personaCount;
+                        document.getElementById(`persona-tab-${prevPersona}`).focus();
+                    } else if (e.key === 'ArrowRight') {
+                        e.preventDefault();
+                        const currentPersonaNum = parseInt(focusedElement.dataset.persona);
+                        const nextPersona = currentPersonaNum < personaCount ? currentPersonaNum + 1 : 1;
+                        document.getElementById(`persona-tab-${nextPersona}`).focus();
+                    } else if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const personaNum = parseInt(focusedElement.dataset.persona);
+                        switchPersona(personaNum);
+                    }
+                }
+            }
+            
+            // ペルソナ数選択ボタンのキーボードナビゲーション
+            if (focusedElement && focusedElement.classList.contains('persona-count-btn')) {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    const currentCount = parseInt(focusedElement.dataset.count);
+                    const prevCount = currentCount > 1 ? currentCount - 1 : 5;
+                    document.querySelector(`[data-count="${prevCount}"]`).focus();
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    const currentCount = parseInt(focusedElement.dataset.count);
+                    const nextCount = currentCount < 5 ? currentCount + 1 : 1;
+                    document.querySelector(`[data-count="${nextCount}"]`).focus();
+                } else if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const count = parseInt(focusedElement.dataset.count);
+                    setPersonaCount(count);
+                }
+            }
+        });
+
+        // Search functionality with debouncing
+        let searchTimeout;
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                const searchTerm = e.target.value.toLowerCase();
+                const options = document.querySelectorAll('.option-item');
+                
+                if (searchTerm === '') {
+                    // 検索語が空の場合、すべて表示
+                    options.forEach(option => {
+                        option.style.display = 'flex';
+                    });
+                } else {
+                    // 検索語がある場合、フィルタリング
+                    options.forEach(option => {
+                        const text = option.textContent.toLowerCase();
+                        if (text.includes(searchTerm)) {
+                            option.style.display = 'flex';
+                        } else {
+                            option.style.display = 'none';
+                        }
+                    });
+                }
+                
+                // 検索結果の統計を更新
+                updateSearchStats(searchTerm);
+            }, 150); // 150ms のデバウンス
+        });
+
+        // 検索結果統計の更新
+        function updateSearchStats(searchTerm) {
+            if (searchTerm === '') return;
+            
+            const options = document.querySelectorAll('.option-item');
+            const visibleOptions = Array.from(options).filter(option => 
+                option.style.display !== 'none'
+            );
+            
+            // 検索結果数を表示（UI要素があれば）
+            const searchStats = document.getElementById('searchStats');
+            if (searchStats) {
+                searchStats.textContent = `${visibleOptions.length}件の結果`;
+            }
+        }
 
         function copyPrompt() {
             const textarea = document.getElementById('exportText');
@@ -3754,15 +4651,19 @@ ${episode1Custom ? `**エピソード1（日常の意思決定）:**\n${episode1
             try {
                 document.execCommand('copy');
                 
-                // 成功通知
+                // 成功通知とアニメーション
                 const copyBtn = event.target;
                 const originalText = copyBtn.textContent;
                 copyBtn.textContent = '✅ コピー完了！';
                 copyBtn.style.background = '#10b981';
+                copyBtn.style.transform = 'scale(1.05)';
+                copyBtn.style.boxShadow = '0 4px 15px rgba(16, 185, 129, 0.3)';
                 
                 setTimeout(() => {
                     copyBtn.textContent = originalText;
                     copyBtn.style.background = '';
+                    copyBtn.style.transform = '';
+                    copyBtn.style.boxShadow = '';
                 }, 2000);
                 
             } catch (err) {
