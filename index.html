@@ -4397,22 +4397,8 @@ ${personaData.episodes.episode1 ? `**エピソード1（日常の意思決定）
                     }
                 });
                 
-                // 追加で各カテゴリから0-2個をランダム選択（バリエーションを増やすため）
-                // ただし、択一式グループは除く
-                const allOptionsInGroup = group.querySelectorAll('.option-item[data-value]');
-                const unselectedOptions = Array.from(allOptionsInGroup).filter(option => 
-                    !optionsToSelect.includes(option) && !option.dataset.exclusive
-                );
-                
-                if (unselectedOptions.length > 0) {
-                    const additionalCount = Math.floor(Math.random() * 3); // 0-2個追加
-                    const shuffled = [...unselectedOptions].sort(() => Math.random() - 0.5);
-                    const additionalSelections = shuffled.slice(0, Math.min(additionalCount, unselectedOptions.length));
-                    
-                    additionalSelections.forEach(option => {
-                        optionsToSelect.push(option);
-                    });
-                }
+                // ランダム選択では各サブセクションから1つのみ選択
+                // 追加選択は行わず、一貫性を保つ
             });
 
             // 収集した要素をtoggleOption関数を使って正しく選択
