@@ -3680,8 +3680,10 @@
         // ペルソナタブの更新
         function updatePersonaTabs() {
             const tabsContainer = document.getElementById('personaTabs');
-            tabsContainer.innerHTML = '';
-            
+            while (tabsContainer.firstChild) {
+                tabsContainer.removeChild(tabsContainer.firstChild);
+            }
+
             for (let i = 1; i <= personaCount; i++) {
                 const tab = document.createElement('button');
                 tab.className = `persona-tab ${i === currentPersona ? 'active' : ''}`;
@@ -3693,10 +3695,12 @@
                 tab.onclick = () => switchPersona(i);
                 
                 const progress = calculatePersonaProgress(i);
-                tab.innerHTML = `
-                    ペルソナ${i}
-                    <span class="tab-progress" id="tabProgress${i}">${progress}%</span>
-                `;
+                tab.appendChild(document.createTextNode(`ペルソナ${i} `));
+                const progressSpan = document.createElement('span');
+                progressSpan.className = 'tab-progress';
+                progressSpan.id = `tabProgress${i}`;
+                progressSpan.textContent = `${progress}%`;
+                tab.appendChild(progressSpan);
                 
                 tabsContainer.appendChild(tab);
             }
@@ -3754,7 +3758,7 @@
                 item.classList.remove('selected');
                 const checkbox = item.querySelector('.checkbox');
                 if (checkbox) {
-                    checkbox.innerHTML = '';
+                    checkbox.textContent = '';
                 }
             });
             
@@ -3769,7 +3773,7 @@
                         item.classList.add('selected');
                         const checkbox = item.querySelector('.checkbox');
                         if (checkbox) {
-                            checkbox.innerHTML = '✓';
+                            checkbox.textContent = '✓';
                         }
                     } else {
                         // フォールバック: 全ての要素を調べて直接比較
@@ -3779,7 +3783,7 @@
                                 optionItem.classList.add('selected');
                                 const checkbox = optionItem.querySelector('.checkbox');
                                 if (checkbox) {
-                                    checkbox.innerHTML = '✓';
+                                    checkbox.textContent = '✓';
                                 }
                                 break;
                             }
@@ -3941,7 +3945,7 @@
             
             if (element.classList.contains('selected')) {
                 // 選択解除
-                checkbox.innerHTML = '';
+                checkbox.textContent = '';
                 element.classList.remove('selected');
                 selections[group] = selections[group].filter(item => item !== value);
             } else {
@@ -3952,16 +3956,16 @@
                         if (item !== element && item.classList.contains('selected')) {
                             const itemCheckbox = item.querySelector('.checkbox');
                             const itemValue = item.dataset.value;
-                            
-                            itemCheckbox.innerHTML = '';
+
+                            itemCheckbox.textContent = '';
                             item.classList.remove('selected');
                             selections[group] = selections[group].filter(sel => sel !== itemValue);
                         }
                     });
                 }
-                
+
                 // 新しい選択を追加
-                checkbox.innerHTML = '✓';
+                checkbox.textContent = '✓';
                 element.classList.add('selected');
                 selections[group].push(value);
             }
@@ -4025,13 +4029,22 @@
         function updateResultDisplay(groupKey, elementId, title) {
             const container = document.getElementById(elementId);
             const itemsContainer = container.querySelector('.result-items');
-            
+
+            while (itemsContainer.firstChild) {
+                itemsContainer.removeChild(itemsContainer.firstChild);
+            }
             if (selections[groupKey].length === 0) {
-                itemsContainer.innerHTML = '<div class="result-item">まだ選択されていません</div>';
+                const el = document.createElement('div');
+                el.className = 'result-item';
+                el.textContent = 'まだ選択されていません';
+                itemsContainer.appendChild(el);
             } else {
-                itemsContainer.innerHTML = selections[groupKey]
-                    .map(item => `<div class="result-item">・${item}</div>`)
-                    .join('');
+                selections[groupKey].forEach(item => {
+                    const el = document.createElement('div');
+                    el.className = 'result-item';
+                    el.textContent = `・${item}`;
+                    itemsContainer.appendChild(el);
+                });
             }
         }
 
@@ -4334,7 +4347,7 @@ ${personaData.episodes.episode1 ? `**エピソード1（日常の意思決定）
                 exportArea.parentNode.insertBefore(messageArea, exportArea);
             }
             
-            messageArea.innerHTML = '📋 下の生成AI用プロンプトのセクションを確認してください';
+            messageArea.textContent = '📋 下の生成AI用プロンプトのセクションを確認してください';
             messageArea.style.display = 'block';
             
             // 5秒後にメッセージを自動で非表示
@@ -4445,7 +4458,7 @@ ${personaData.episodes.episode1 ? `**エピソード1（日常の意思決定）
                 item.classList.remove('selected');
                 const checkbox = item.querySelector('.checkbox');
                 if (checkbox) {
-                    checkbox.innerHTML = ''; // チェックマークを削除
+                    checkbox.textContent = '';
                 }
             });
             
@@ -4492,7 +4505,7 @@ ${personaData.episodes.episode1 ? `**エピソード1（日常の意思決定）
                 closeSearch();
             } else {
                 searchBox.classList.add('active');
-                searchToggle.innerHTML = '×';
+                searchToggle.textContent = '×';
                 setTimeout(() => {
                     document.getElementById('searchInput').focus();
                 }, 300);
@@ -4505,7 +4518,7 @@ ${personaData.episodes.episode1 ? `**エピソード1（日常の意思決定）
             const searchInput = document.getElementById('searchInput');
             
             searchBox.classList.remove('active');
-            searchToggle.innerHTML = '🔍';
+            searchToggle.textContent = '🔍';
             searchInput.value = '';
             
             // Clear search results
